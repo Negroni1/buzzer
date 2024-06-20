@@ -18,10 +18,69 @@ type Playground struct {
 	isFinished bool
 }
 
-// GenerateProgram should return the instructions to feed the verifier.
+// GenerateProgram should return the instructions to feed the verifier.i
+
 func (pg *Playground) GenerateProgram(ffi *units.FFI) (*epb.Program, error) {
+	/*
+	       call := &epb.Instruction{
+	   		Opcode: &epb.Instruction_JmpOpcode{
+	   			JmpOpcode: &epb.JmpOpcode{
+	                   OperationCode:    epb.JmpOperationCode_JmpCALL,
+	   				Source:           epb.SrcOperand_Immediate,
+	   				InstructionClass: epb.InsClass_InsClassJmp,
+	   			},
+	   		},
+	   		DstReg: R0,
+	   		SrcReg: R1,
+	   		// Oh protobuf why don't you have int16 support?, need to cast
+	   		// this to int32 to make golang happy.
+	   		Offset:    0,
+	   		Immediate: 2,
+	   		PseudoInstruction: &epb.Instruction_Empty{
+	   			Empty: &epb.Empty{},
+	   		},
+	   	}
+	           Mov(R0, 0),
+	           Exit(),
+	*/
+	call := &epb.Instruction{
+		Opcode: &epb.Instruction_MemOpcode{
+			MemOpcode: &epb.MemOpcode{
+				Mode:             epb.StLdMode_StLdModeIMM,
+				Size:             epb.StLdSize_StLdSizeDW,
+				InstructionClass: epb.InsClass_InsClassLd,
+			},
+		},
+		DstReg:    R2,
+		SrcReg:    epb.Reg_R4,
+		Offset:    0,
+		Immediate: 3,
+		PseudoInstruction: &epb.Instruction_PseudoValue{
+			PseudoValue: &epb.Instruction{
+				Opcode: &epb.Instruction_MemOpcode{
+					MemOpcode: &epb.MemOpcode{
+						Mode:             0,
+						Size:             0,
+						InstructionClass: 0,
+					},
+				},
+				DstReg:    0,
+				SrcReg:    0,
+				Offset:    0,
+				Immediate: 0,
+				PseudoInstruction: &epb.Instruction_Empty{
+					Empty: &epb.Empty{},
+				},
+			},
+		},
+	}
 	insn, err := InstructionSequence(
-		Mov64(R0, 0),
+		Mov(R1, 1),
+		call,
+		Call(181),
+		Exit(),
+		Mov(R0, 0),
+		Mov(R0, 0),
 		Exit(),
 	)
 	if err != nil {
