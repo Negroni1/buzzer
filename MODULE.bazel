@@ -17,6 +17,7 @@ use_repo(
     "com_github_go_echarts_go_echarts_v2",
     "com_github_golang_protobuf",
     "com_github_google_safehtml",
+    "com_github_cilium_ebpf",
 )
 
 go_sdk = use_extension("@io_bazel_rules_go//go:extensions.bzl", "go_sdk")

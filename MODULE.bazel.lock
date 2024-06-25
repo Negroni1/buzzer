@@ -132,10 +132,10 @@
         "bzlTransitiveDigest": "Taobh9Bi1JpF4jHwuw6x9ceWDpHtCjGmS8VXbxLOqH8=",
         "usagesDigest": "MSvouYvaEKD9eTkU0h66u84bPwmtWfURSwjP8JwVJgg=",
         "recordedFileInputs": {
-          "@@//go.mod": "cd9b505fcce953a8cfbd19cf94e253d1d21575a4b3a2be63b734cf93b435662b",
+          "@@//go.mod": "637136aedd762a60ddfa83503bb9c33b2389a9af03e4ded79b5d12d01c6ed85f",
           "@@rules_go~//go.mod": "de22304b720f7f61350ec1c9739de6c0a1b1103fd22bfeb6e92c6c843ddc6d6e",
           "@@gazelle~//go.sum": "7469786f3930030c430969cedae951e6947cb40f4a563dac94a350659c0fedc4",
-          "@@//go.sum": "d15a7e5e1c413a679b2baa715fd932127cfc78d39eaa5869b40240d8cf47945b",
+          "@@//go.sum": "cd9c090ce42dead7651668bf6cb1f39cf8b3114f84a39889dd25259b2fad45d8",
           "@@rules_go~//go.sum": "d56fdb19b21a5f12bcf625c49432371ac39c2def0f564098fbda107f7c080f40",
           "@@gazelle~//go.mod": "9ae159a385b2f244bbe964b9f91dbea6e7bd534e0b22e846655f241c65de2c49"
         },
@@ -292,6 +292,21 @@
               "version": "v0.15.0"
             }
           },
+          "org_golang_x_exp": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "golang.org/x/exp",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:Jvc7gsqn21cJHCmAWx0LiimpP18LZmUxkT5Mp7EZ1mI=",
+              "replace": "",
+              "version": "v0.0.0-20230224173230-c95f2b4c22f2"
+            }
+          },
           "org_golang_x_net": {
             "bzlFile": "@@gazelle~//internal:go_repository.bzl",
             "ruleClassName": "go_repository",
@@ -419,9 +434,12 @@
             "ruleClassName": "_go_repository_config",
             "attributes": {
               "importpaths": {
+                "com_github_cilium_ebpf": "github.com/cilium/ebpf",
                 "com_github_go_echarts_go_echarts_v2": "github.com/go-echarts/go-echarts/v2",
                 "com_github_golang_protobuf": "github.com/golang/protobuf",
                 "com_github_google_safehtml": "github.com/google/safehtml",
+                "org_golang_x_exp": "golang.org/x/exp",
+                "org_golang_x_sys": "golang.org/x/sys",
                 "org_golang_x_text": "golang.org/x/text",
                 "com_github_gogo_protobuf": "github.com/gogo/protobuf",
                 "com_github_golang_mock": "github.com/golang/mock",
@@ -432,7 +450,6 @@
                 "org_golang_google_grpc_cmd_protoc_gen_go_grpc": "google.golang.org/grpc/cmd/protoc-gen-go-grpc",
                 "org_golang_google_protobuf": "google.golang.org/protobuf",
                 "org_golang_x_mod": "golang.org/x/mod",
-                "org_golang_x_sys": "golang.org/x/sys",
                 "com_github_bazelbuild_buildtools": "github.com/bazelbuild/buildtools",
                 "com_github_bmatcuk_doublestar_v4": "github.com/bmatcuk/doublestar/v4",
                 "com_github_fsnotify_fsnotify": "github.com/fsnotify/fsnotify",
@@ -482,6 +499,21 @@
               "version": "v0.15.0"
             }
           },
+          "com_github_cilium_ebpf": {
+            "bzlFile": "@@gazelle~//internal:go_repository.bzl",
+            "ruleClassName": "go_repository",
+            "attributes": {
+              "importpath": "github.com/cilium/ebpf",
+              "build_directives": [],
+              "build_file_generation": "auto",
+              "build_extra_args": [],
+              "patches": [],
+              "patch_args": [],
+              "sum": "h1:7NxJhNiBT3NG8pZJ3c+yfrVdHY8ScgKD27sScgjLMMk=",
+              "replace": "",
+              "version": "v0.15.0"
+            }
+          },
           "com_github_google_go_cmp": {
             "bzlFile": "@@gazelle~//internal:go_repository.bzl",
             "ruleClassName": "go_repository",
@@ -500,6 +532,7 @@
         },
         "moduleExtensionMetadata": {
           "explicitRootModuleDirectDeps": [
+            "com_github_cilium_ebpf",
             "com_github_go_echarts_go_echarts_v2",
             "com_github_golang_protobuf",
             "com_github_google_safehtml"

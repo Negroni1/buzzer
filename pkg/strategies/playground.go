@@ -6,6 +6,7 @@ import (
 	epb "buzzer/proto/ebpf_go_proto"
 	fpb "buzzer/proto/ffi_go_proto"
 	"fmt"
+//    btf "github.com/cilium/ebpf/btf"
 )
 
 func NewPlaygroundStrategy() *Playground {
@@ -83,6 +84,7 @@ func (pg *Playground) GenerateProgram(ffi *units.FFI) (*epb.Program, error) {
 		Mov(R0, 0),
 		Exit(),
 	)
+//    fmt.Println(btf.LoadKernelSpec())
 	if err != nil {
 		return nil, err
 	}
